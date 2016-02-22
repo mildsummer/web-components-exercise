@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  // button要素を継承してtlab-button要素を登録
+  document.registerElement('tlab-button', {
+    prototype: Object.create(HTMLButtonElement.prototype),
+    extends: 'button'
+  });
+</script>
+<button is="tlab-button">はい</button>
+</body>
+</html>

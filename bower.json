@@ -1,0 +1,10 @@
+{
+  "name": "web-components-exercise",
+  "authors": [
+    "mildsummer <mild.summer.y@gmail.com>"
+  ],
+  "description": "",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0"
+  }
+}

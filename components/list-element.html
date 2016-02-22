@@ -1,0 +1,30 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<dom-module id="list-element">
+  <template>
+    <ul>
+      <h3>{{listName}}</h3>
+      <template is="dom-repeat" items="{{items}}">
+      <p>{{item.name}}</p>
+      </template>
+    </ul>
+    <div hidden$="{{isHidden}}"></div>
+    <input value="{{hostValue::input}}">{{hostValue}}
+    <button onClick="{{handleClick}}">クリック</button>
+  </template>
+  <script>
+    Polymer({
+      is: 'list-element',
+      properties: {
+        listName: String
+      },
+      ready: function() {
+        this.items = [{name: 'foo'}, {name: 'bar'}];
+        this.isHidden = true;
+        this.hostValue = 'initial text';
+        this.handleClick = function() {
+          alert('クリック');
+        };
+      }
+    });
+  </script>
+</dom-module>

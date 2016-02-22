@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<x-foo-from-template></x-foo-from-template>
+<p>This p tag is not affected by the shadow CSS.</p>
+<template id="xFooTemplate">
+  <style>
+    p { color: orange; }
+  </style>
+  <p>I'm in Shadow DOM. My markup was stamped from a &lt;template&gt;.</p>
+</template>
+<script>
+  document.registerElement('x-foo-from-template', {prototype: Object.create(HTMLElement.prototype, {
+    createdCallback: {
+      value: function() {
+        var t = document.querySelector('#xFooTemplate');
+        var clone = document.importNode(t.content, true);
+        this.createShadowRoot().appendChild(clone);
+      }
+    }
+  })});
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<x-hello>
+  <span class="familyName">Umamichi</span>
+  <span class="firstName">Masataka</span>
+</x-hello>
+<template id="helloTemplate">
+  <p>Hello! <content select=".firstName"></content> <content select=".familyName"></content> San!</p>
+</template>
+<script>
+  document.registerElement('x-hello', {prototype: Object.create(HTMLElement.prototype, {
+    createdCallback: {
+      value: function() {
+        var t = document.querySelector('#helloTemplate');
+        var clone = document.importNode(t.content, true);
+        this.createShadowRoot().appendChild(clone);
+      }
+    }
+  })});
+</script>
+</body>
+</html>

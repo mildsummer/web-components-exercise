@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<x-foo-with-markup></x-foo-with-markup>
+<script>
+  document.registerElement('x-foo-with-markup', {prototype: Object.create(HTMLElement.prototype, {
+    createdCallback: {
+      value: function() {
+        this.innerHTML = "<b>I'm an x-foo-with-markup!</b>";
+      }
+    }
+  })});
+</script>
+</body>
+</html>

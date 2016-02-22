@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<x-foo-shadowdom></x-foo-shadowdom>
+<script>
+  document.registerElement('x-foo-shadowdom', {prototype: Object.create(HTMLElement.prototype, {
+    createdCallback: {
+      value: function() {
+        var shadow = this.createShadowRoot();
+        shadow.innerHTML = "<b>I'm an x-foo-shadowdom!</b>";
+      }
+    }
+  })});
+</script>
+</body>
+</html>
