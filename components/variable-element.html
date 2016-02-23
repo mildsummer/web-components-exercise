@@ -1,10 +1,10 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<dom-module id="list-element">
+<dom-module id="variable-element">
   <template>
+    <h3>{{listName}}</h3>
     <ul>
-      <h3>{{listName}}</h3>
       <template is="dom-repeat" items="{{items}}">
-      <p>{{item.name}}</p>
+        <li>{{item.name}}</li>
       </template>
     </ul>
     <div hidden$="{{isHidden}}"></div>
@@ -13,7 +13,7 @@
   </template>
   <script>
     Polymer({
-      is: 'list-element',
+      is: 'variable-element',
       properties: {
         listName: String
       },
